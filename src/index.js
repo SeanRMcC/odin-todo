@@ -2,9 +2,14 @@ import { format, compareAsc } from 'date-fns';
 
 const addProjectButton = document.querySelector("#add-project");
 const submitProjectButton = document.querySelector(".submit-project");
+const homeButton = document.querySelector("#home");
 
 const projectList = ProjectList();
 const defaultProject = Project("Home");
+
+homeButton.addEventListener("click", () => {
+    displayProject(defaultProject);
+});
 
 function Todo(title, description, dueDate){
     const getTitle = () => title;
@@ -69,8 +74,18 @@ function updateProjectButtons(){
         const projectButton = document.createElement("button");
         projectButton.dataset.index = i;
         projectButton.textContent = projectList.getList()[i].getName();
+        projectButton.addEventListener("click", () => {
+            const project = projectList.getList()[projectButton.dataset.index];
+            displayProject(project);
+        });
         projectButtons.appendChild(projectButton);
     }
+}
+
+function displayProject(project){
+    const content = document.querySelector(".content");
+    content.innerHTML = '';
+    content.textContent = project.getName();
 }
 
 addProjectButton.addEventListener("click", () => {
@@ -83,6 +98,6 @@ submitProjectButton.addEventListener("click", () => {
     const projectName = document.querySelector("#project-name");    
     form.classList.remove("new-project-revealed");
     projectList.addProject(Project(projectName.value));
-    projectName.textContent = '';
+    projectName.value = '';
     updateProjectButtons();
 });
