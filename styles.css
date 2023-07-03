@@ -18,24 +18,71 @@ body{
     height: 100%;
 }
 
+h1{
+    margin: 0;
+    padding: 40px 20px;
+    background-color: #301934;
+    color: white;
+    font-style: italic;
+    text-shadow: 4px 4px black, 5px 5px white;
+    font-size: 50px;
+}
+
 .sidebar{
     flex-basis: 200px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
-    background-color: red;
+    background-color: darkslategray;
     padding: 20px 5px;
+}
+
+.sidebar-title{
+    color: white;
+    text-shadow: 3px 3px #301934, 4px 4px black;
+}
+
+.sidebar-button,
+#new-task-button,
+.submit-project,
+#submit-task{
+    font-size: 15px;
+    border: 0;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+}
+
+input,
+textarea{
+    border-radius: 8px;
+}
+
+.sidebar-button:hover,
+#new-task-button:hover,
+.submit-project:hover,
+#submit-task:hover{
+    font-style: italic;
+    font-weight: bold;
 }
 
 .content{
     flex: 1;
-    background-color: blue;
+    background-color: black;
     padding: 20px;
+    color: white;
 }
 
 .new-project{
     display: none;
+}
+
+#project-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .new-project-revealed{
@@ -43,6 +90,8 @@ body{
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
+    color: white;
+    font-weight: 500;
 }
 
 .hidden-form{
@@ -66,4 +115,37 @@ body{
 .todo-header{
     display: flex;
     align-items: center;
+}
+
+.todo-wrapper{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 300px;
+    gap: 20px;
+}
+
+.todo-element{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 2px 2px 10px white, 1px 1px 5px #301934;
+    border-radius: 8px;
+    padding-bottom: 25px;
+}
+
+.delete{
+    margin-top: auto;
+    padding: 5px 10px;
+    border-radius: 8px; 
+    border: 0;
+    color: white;
+    background-color: #800000;
+}
+
+.delete:hover{
+    color: #800000;
+    background-color: white;
+    font-style: italic;
+    font-weight: bold;
 }
