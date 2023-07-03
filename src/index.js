@@ -62,6 +62,7 @@ function updateProjectButtons(){
     projectButtons.innerHTML = '';
     for(let i = 0; i < projectList.getList().length; i++){
         const projectButton = document.createElement("button");
+        projectButton.classList.add("sidebar-button");
         projectButton.dataset.index = i;
         projectButton.textContent = projectList.getList()[i].getName();
         projectButton.addEventListener("click", () => {
@@ -83,7 +84,7 @@ function displayProject(project){
     header.appendChild(projectTitle);
     const newTaskButton = document.createElement("button");
     newTaskButton.id = "new-task-button";
-    newTaskButton.textContent = "New Task:";
+    newTaskButton.textContent = "New Task";
     const newTaskForm = document.createElement("div");
     newTaskForm.classList.add("hidden-form");
     newTaskButton.addEventListener("click", () => {
@@ -104,7 +105,7 @@ function displayProject(project){
     desInput.name = "description";
     const dateLabel = document.createElement("label");
     dateLabel.for = "date";
-    dateLabel.textContent = "date";
+    dateLabel.textContent = "Date";
     const dateInput = document.createElement("input");
     dateInput.type = "datetime-local";
     dateInput.id = "date";
@@ -140,6 +141,7 @@ function createTask(taskList){
 
 function renderTasks(taskList, project){
     const wrapper = document.createElement("div");
+    wrapper.classList.add("todo-wrapper");
     for(let i = 0; i < taskList.getList().length; i++){
         wrapper.appendChild(createDOMTask(taskList.getList()[i], i, project));
     }
@@ -166,6 +168,7 @@ function createDOMTask(task, index, project){
         displayProject(project);
     });
     taskElement.appendChild(deleteButton);
+    taskElement.classList.add("todo-element");
     return taskElement;
 
 }
