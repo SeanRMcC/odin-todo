@@ -25,12 +25,13 @@ body{
     align-items: flex-start;
     gap: 20px;
     background-color: red;
-    padding: 5px;
+    padding: 20px 5px;
 }
 
 .content{
     flex: 1;
     background-color: blue;
+    padding: 20px;
 }
 
 .new-project{
@@ -42,4 +43,27 @@ body{
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
+}
+
+.hidden-form{
+    display: none;
+}
+
+.revealed-form{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#project-title{
+    margin-right: 50px;
+}
+
+#new-task-button{
+    margin-right: auto;
+}
+
+.todo-header{
+    display: flex;
+    align-items: center;
 }
